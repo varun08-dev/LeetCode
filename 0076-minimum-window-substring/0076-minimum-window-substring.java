@@ -1,9 +1,6 @@
 class Solution {
     public String minWindow(String s, String t) {
 
-    if (s.length() < t.length() || t.length() == 0) {
-        return "";
-    }
     int startIndex =0;
 	int minLength= Integer.MAX_VALUE;
 
@@ -36,10 +33,12 @@ class Solution {
         }
         right++;
     }
-		
-	if(minLength==Integer.MAX_VALUE){
+
+    if (s.length() < t.length() || t.length() == 0 || minLength==Integer.MAX_VALUE) {
         return "";
     }
+
+	
     String result = s.substring(startIndex, startIndex +minLength);
     return result;
     }
